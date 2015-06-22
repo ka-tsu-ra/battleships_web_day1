@@ -9,9 +9,9 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/start' do
-    "What's your name?"
+    @visitor = params[:name]
+    erb :start
   end
 
-  # start the server if ruby file executed directly
   run! if app_file == $0
 end
