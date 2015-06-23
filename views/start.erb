@@ -1,9 +1,13 @@
-<% if @visitor %>
-  Welcome to Battleships, Admiral <%= @visitor %>
-<% else %>
-<form action="/start">
-  "What's your name?"
-  <input name="name" type="text">
-  <input type="submit" value="Submit">
-</form>
-<% end %>
+<div>
+  <% if @visitor %>
+    <p>Welcome to Battleships, Admiral <%= @visitor %>.</p>
+    <p>Click here to get your Battleships board:</p>
+    <a href='/getboard'>Gimme a board!</a>
+  <% else %>
+    <form action="/start">
+      What's your name?
+      <input name="name" type="text">
+      <input type="submit" value="Submit">
+    </form>
+  <% end %>
+</div>

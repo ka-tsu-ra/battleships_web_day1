@@ -11,6 +11,19 @@ feature 'Starting a new game' do
     visit '/start'
     fill_in 'name', with: 'Kirsten'
     click_button('Submit')
-    expect(page).to have_content "Welcome to Battleships, Admiral Kirsten"
+    expect(page).to have_content "Welcome to Battleships, Admiral Kirsten."
+  end
+
+  scenario 'It can produce a board' do
+    visit '/getboard'
+    #click_button("Where/'s my board?")
+    expect(page).to have_content "BOARD"
+  end
+
+  scenario 'It tells you that you hit a ship at a co-ordinate you chose' do
+    visit'/getboard'
+    fill_in 'coord', with: 'A5'
+    click_link('Shoot')
+    expect(page).to have_content "You hit a ship on A5!"
   end
 end
