@@ -19,6 +19,10 @@ class BattleshipsWeb < Sinatra::Base
     erb :getboard
   end
 
+  post '/getboard' do
+    erb :getboard
+  end
+
   # get '/shoot' do
   #   $coord = params[:cell]
   #   erb :shoot
