@@ -16,7 +16,7 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/getboard' do
-    #$coord = params[:cell]
+    #$game = Game.new Player, Board
     erb :getboard
   end
 
