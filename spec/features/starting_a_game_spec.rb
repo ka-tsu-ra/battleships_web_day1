@@ -22,7 +22,7 @@ feature 'Starting a new game' do
     expect(page).to have_content "ABCDEFGHIJ"
   end
 
-  scenario 'It places a ship in the board' do
+  scenario 'It places a ship somewhere in the board' do
     visit'/getboard'
     fill_in 'coord', with: 'A5'
     click_button('Place ship')
