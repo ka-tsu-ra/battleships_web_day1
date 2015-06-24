@@ -12,7 +12,7 @@ class BattleshipsWeb < Sinatra::Base
   get '/start' do
     @visitor = params[:name]
     erb :start
-  end
+  endrspec
 
   get '/getboard' do
     $game = Game.new Player, Board
