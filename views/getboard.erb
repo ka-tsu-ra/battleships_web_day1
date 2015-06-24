@@ -2,9 +2,8 @@
   <pre class><%= $game.own_board_view $game.player_1 %></pre>
   <p>Time to place your ships.</p>
   <p>Choose co-ordinates!</p>
-  <form action="/getboard">
-    <input name="coord" type="text">
-  </form>
-  <a href='/[somename]'>Position ships!</a>
-
+<form action="/getboard">
+  <input name="coord" type="text">
+  <input type="submit" value="Place ship">
+</form> 
 </div>

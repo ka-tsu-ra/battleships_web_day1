@@ -22,10 +22,10 @@ feature 'Starting a new game' do
     expect(page).to have_content "ABCDEFGHIJ"
   end
 
-  # scenario 'It tells you that you hit a ship at a co-ordinate you chose' do
-  #   visit'/getboard'
-  #   fill_in 'coord', with: 'A5'
-  #   click_link('Shoot')
-  #   expect(page).to have_content "You hit a ship on A5!"
-  # end
+  scenario 'It places a ship in the board' do
+    visit'/getboard'
+    fill_in 'coord', with: 'A5'
+    click_button('Place ship')
+    expect(page).to have_content "x"
+  end
 end
