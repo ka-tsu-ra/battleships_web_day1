@@ -26,15 +26,7 @@ feature 'Starting a new game' do
     visit'/getboard'
     fill_in 'coord', with: 'A5'
     click_button('Place ship')
-    expect(page).to have_content "x"
+    expect(page).to have_content "BBBB" #Not sure how to test for other ships/sizes
   end
 
-  scenario 'It recalls a coordinate' do
-    visit'/placeship'
-    fill_in 'coord', with: 'A5'
-    click_button('Place ship')
-    expect(page).to have_content "A5"
-
-
-  end
 end
