@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require 'Battleships_web'
+require 'battleships'
 
 class BattleshipsWeb < Sinatra::Base
 
@@ -10,19 +10,20 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/start' do
+    #$game = Game.new Player, Board
     @visitor = params[:name]
     erb :start
   end
 
   get '/getboard' do
-    $coord = params[:cell]
+    #$coord = params[:cell]
     erb :getboard
   end
 
-  get '/shoot' do
-    $coord = params[:cell]
-    erb :shoot
-  end
+  # get '/shoot' do
+  #   $coord = params[:cell]
+  #   erb :shoot
+  # end
 
   run! if app_file == $0
 end
