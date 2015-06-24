@@ -1,10 +1,10 @@
 <div>
-  <pre><%= $game.own_board_view $game.player_1 %></pre>
-  <p>Time to shoot your opponent's board.</p>
-  <p>Choose a co-ordinate and shoot!</p>
+  <pre class = "game"><%= $game.own_board_view $game.player_1 %></pre>
+  <p>Time to place your ships.</p>
+  <p>Choose co-ordinates!</p>
   <form action="/getboard">
     <input name="coord" type="text">
   </form>
-  <a href='/shoot'>Shoot!</a>
+  <a href='/[somename]'>Position ships!</a>
 
 </div>

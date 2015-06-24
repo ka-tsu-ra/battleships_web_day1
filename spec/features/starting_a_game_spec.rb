@@ -19,7 +19,7 @@ feature 'Starting a new game' do
     fill_in 'name', with: 'Kirsten'
     click_button('Submit')
     click_link('Gimme a board!')
-    expect(page).to have_content "BOARD"
+    expect(page).to have_content "ABCDEFGHIJ"
   end
 
   # scenario 'It tells you that you hit a ship at a co-ordinate you chose' do
