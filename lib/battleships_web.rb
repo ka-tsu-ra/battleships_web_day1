@@ -21,16 +21,15 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   post '/placeship' do
-    
     @coord = params[:coord]
-    redirect:placeship
-
+    $game.player_1.place_ship Ship.battleship, @coord
+    redirect '/getboard'
   end
-
-  get '/getboard' do
-    game.player_1.place_ship Ship.battleship, :A5
-
-  end
+  #
+  # get '/getboard' do
+  #   game.player_1.place_ship Ship.battleship, :A5
+  #
+  # end
 
 
 
