@@ -21,27 +21,11 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   post '/placeship' do
-
+      @shiptype = params[:shiptype]
       @coord = params[:coord]
-      $game.player_1.place_ship Ship.battleship, @coord
+      $game.player_1.place_ship @shiptype, @coord
       redirect '/getboard'
-
   end
-  #
-  # get '/getboard' do
-  #   game.player_1.place_ship Ship.battleship, :A5
-  #
-  # end
-
-
-
-
-  # get '/shoot' do
-  #   $coord = params[:cell]
-  #   erb :shoot
-  # end
-
-
 
   run! if app_file == $0
 end

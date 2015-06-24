@@ -26,6 +26,7 @@ end
 feature 'Place a ship on a board' do
   scenario 'Can place a ship somewhere in the board' do
     visit'/getboard'
+    fill_in 'shiptype', with: 'battleship'
     fill_in 'coord', with: 'A5'
     click_button('Place ship')
     expect(page).to have_content "BBBB" #Not sure how to test for other ships/sizes
