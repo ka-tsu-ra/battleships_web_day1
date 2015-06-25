@@ -24,12 +24,21 @@ feature 'Starting a new game' do
 end
 
 feature 'Place a ship on a board' do
-  scenario 'Can place a ship somewhere in the board' do
+  scenario 'Can place a ship on the board' do
     visit'/getboard'
     fill_in 'shiptype', with: 'battleship'
     fill_in 'coord', with: 'A5'
+    fill_in 'direction', with: 'horizontally'
     click_button('Place ship')
-    expect(page).to have_content "BBBB" #Not sure how to test for other ships/sizes
+    expect(page).to have_content "BBBB"
   end
 
+  scenario 'can place a ship vertically on the board' do
+    visit '/getboard'
+    fill_in 'shiptype', with: 'cruiser'
+    fill_in 'coord', with: 'H8'
+    fill_in 'direction', with: 'vertically'
+    click_button('Place ship')
+    expect(page).to have_content "C"
+  end
 end

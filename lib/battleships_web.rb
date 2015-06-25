@@ -22,9 +22,10 @@ class BattleshipsWeb < Sinatra::Base
 
   post '/placeship' do
       coord = params[:coord].to_sym
+      direction = params[:direction].to_sym
       shiptype = params[:shiptype]
       ship = Ship.new(shiptype) #create a ship here using shiptype variable
-      $game.player_1.place_ship ship, coord
+      $game.player_1.place_ship ship, coord, direction
       redirect '/getboard'
 
   end
