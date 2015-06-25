@@ -51,3 +51,12 @@ feature 'Place a ship on a board' do
     expect(page).to have_content "Please enter a valid coordinate."
   end
 end
+
+feature 'Firing at a ship' do
+  scenario 'Player 1 can fire at his own board' do
+    visit '/firing'
+    fill_in 'coord', with: 'A1'
+    click_button('Fire!')
+    expect(page).to have_content "You have just missed 'A1'"
+  end
+end

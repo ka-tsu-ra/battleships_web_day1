@@ -16,7 +16,8 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/getboard' do
-    @board = $game.own_board_view $game.player_1
+    @board1 = $game.own_board_view $game.player_1
+    # @board2 = $game.own_board_view $game.player_2
     erb :getboard
   end
 
@@ -30,8 +31,19 @@ class BattleshipsWeb < Sinatra::Base
     rescue
       @error = 'Invalid coordinate'
     end
-    @board = $game.own_board_view $game.player_1
+    @board1 = $game.own_board_view $game.player_1
     erb :getboard
+  end
+
+  get '/firing' do
+    @board2 = $game.opponent_board_view $game.player_1
+    erb :firing
+  end
+
+  post '/actually_firing' do
+    coordinate = params[:coordinate].to_sym
+    $game.player_2.shoot coordinate
+    erb :firing
   end
 
   run! if app_file == $0

@@ -1,5 +1,6 @@
 <div>
-  <pre class><%= @board %></pre>
+  <pre class><%= @board1 %></pre>
+  <!-- <pre class><%= @board2 %></pre> -->
   <p>Time to place your ships.</p>
   <p>Choose type of ship, co-ordinates and direction!</p>
 <form action="/placeship" method="POST">
@@ -8,6 +9,7 @@
   <input name="direction" type="text">
   <input type="submit" value="Place ship">
 </form>
+<a href='/firing'>Start firing!</a>
 <% if @error %>
   <p>Please enter a valid coordinate.</p>
 <% end %>
