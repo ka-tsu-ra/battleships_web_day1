@@ -42,8 +42,9 @@ class BattleshipsWeb < Sinatra::Base
 
   post '/actually_firing' do
     coordinate = params[:coordinate].to_sym
-    $game.player_2.shoot coordinate
-    erb :firing
+    $game.player_1.shoot coordinate
+    #@board2 = $game.opponent_board_view $game.player_1
+    redirect '/firing'
   end
 
   run! if app_file == $0

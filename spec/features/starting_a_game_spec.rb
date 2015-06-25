@@ -55,8 +55,8 @@ end
 feature 'Firing at a ship' do
   scenario 'Player 1 can fire at his own board' do
     visit '/firing'
-    fill_in 'coord', with: 'A1'
+    fill_in 'coordinate', with: 'A1'
     click_button('Fire!')
-    expect(page).to have_content "You have just missed 'A1'"
+    expect(page).to have_content "-"
   end
 end
