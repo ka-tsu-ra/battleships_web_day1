@@ -41,4 +41,13 @@ feature 'Place a ship on a board' do
     click_button('Place ship')
     expect(page).to have_content "C"
   end
+
+  scenario 'goes to error message when placing a ship out of bounds' do
+    visit '/getboard'
+    fill_in 'shiptype', with: 'cruiser'
+    fill_in 'coord', with: 'J10'
+    fill_in 'direction', with: 'vertically'
+    click_button('Place ship')
+    expect(page).to have_content "Please enter a valid coordinate."
+  end
 end

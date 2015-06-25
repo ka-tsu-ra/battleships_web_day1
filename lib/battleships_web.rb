@@ -25,11 +25,15 @@ class BattleshipsWeb < Sinatra::Base
       direction = params[:direction].to_sym
       shiptype = params[:shiptype]
       ship = Ship.new(shiptype) #create a ship here using shiptype variable
+    begin
       $game.player_1.place_ship ship, coord, direction
-      redirect '/getboard'
-
+    rescue RuntimeError => @error
+      # @error = 'Invalid coordinate'
+      # redirect '/getboard'
+      erb :getboard
+    end
+    redirect '/getboard'
   end
-
 
   run! if app_file == $0
 end
