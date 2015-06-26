@@ -3,6 +3,7 @@ require 'battleships'
 
 class BattleshipsWeb < Sinatra::Base
 
+  set :public_folder, proc { File.join(root, '..', "public") }
   set :views, proc { File.join(root, '..', 'views') }
 
   get '/' do
